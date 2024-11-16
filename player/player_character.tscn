@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://datixftma8uy6"]
+[gd_scene load_steps=9 format=3 uid="uid://datixftma8uy6"]
 
 [ext_resource type="Script" path="res://playercontroller.gd" id="1_6hnix"]
 [ext_resource type="PackedScene" uid="uid://c2h21kfqh3uk6" path="res://z_blendermeshes/cube.tscn" id="2_hvthm"]
+[ext_resource type="AudioStream" uid="uid://cdyufvke00mp1" path="res://Musique/Wolf_Wundernight_Looping.wav" id="3_bttn8"]
+[ext_resource type="AudioStream" uid="uid://bxfnx8ok8rj20" path="res://Musique/Wolf_Ultraviolence_Looping.wav" id="4_sew63"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpnev"]
 size = Vector3(2, 2, 2)
@@ -64,3 +66,12 @@ libraries = {
 "": SubResource("AnimationLibrary_7k0br")
 }
 autoplay = "cam_idle"
+
+[node name="BaseMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+stream = ExtResource("3_bttn8")
+autoplay = true
+
+[node name="WildMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+stream = ExtResource("4_sew63")
+volume_db = -80.0
+autoplay = true

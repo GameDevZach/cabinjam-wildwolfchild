@@ -13,6 +13,8 @@ const JUMP_VELOCITY = 4.5
 @onready var cameraRotator: Node3D = $CameraRotator
 @onready var camera: Camera3D = $CameraRotator/Camera3D
 @onready var cameraAnimator: AnimationPlayer = $CameraRotator/Camera3D/AnimationPlayer
+@onready var BaseMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/BaseMusicStream
+@onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/WildMusicStream
 
 func _ready() -> void: 
 	cameraAnimator.speed_scale = 0.75
@@ -33,6 +35,8 @@ func _physics_process(delta: float) -> void:
 			sprintTimer = 0
 			curSpeed = BASE_SPEED
 			cameraAnimator.speed_scale = 0.75
+			WildMusicStream.volume_db = -80.0
+			BaseMusicStream.volume_db = 0.0
 	elif stamina < 100:
 		stamina += delta * 2
 
@@ -41,6 +45,8 @@ func _physics_process(delta: float) -> void:
 		curSpeed = SPRINT_SPEED
 		sprintTimer = SPRINT_TIME
 		cameraAnimator.speed_scale = 1.5
+		WildMusicStream.volume_db = 0.0
+		BaseMusicStream.volume_db = -80.0
 		#velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
