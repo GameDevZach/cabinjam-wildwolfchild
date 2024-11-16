@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://or6ofvpa0dv3"]
+
+[ext_resource type="Script" path="res://mobs/mobController.gd" id="1_1ixhp"]
+[ext_resource type="PackedScene" uid="uid://cd8yno85l6j5p" path="res://z_blendermeshes/mobcube.tscn" id="1_dwc2v"]
+[ext_resource type="PackedScene" uid="uid://bnc0s12bge026" path="res://mobs/giblets.tscn" id="2_owfx4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81qkq"]
+size = Vector3(2, 2, 2)
+
+[node name="Mob" type="Node3D"]
+
+[node name="MobBody" type="RigidBody3D" parent="."]
+script = ExtResource("1_1ixhp")
+particles_scene = ExtResource("2_owfx4")
+
+[node name="cube" parent="MobBody" instance=ExtResource("1_dwc2v")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MobBody"]
+shape = SubResource("BoxShape3D_81qkq")

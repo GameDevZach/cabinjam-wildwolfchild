@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd8yno85l6j5p"]
+
+[ext_resource type="PackedScene" uid="uid://bb1qpfss61kn5" path="res://z_blendermeshes/cube.blend" id="1_c631f"]
+[ext_resource type="Material" uid="uid://4rgxqj6w3jqv" path="res://z_blendermeshes/redmat.tres" id="2_4cvhi"]
+
+[node name="cube" instance=ExtResource("1_c631f")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4cvhi")
