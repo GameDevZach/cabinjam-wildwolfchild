@@ -1,10 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://datixftma8uy6"]
+[gd_scene load_steps=7 format=3 uid="uid://datixftma8uy6"]
 
 [ext_resource type="Script" path="res://playercontroller.gd" id="1_6hnix"]
 [ext_resource type="PackedScene" uid="uid://c2h21kfqh3uk6" path="res://z_blendermeshes/cube.tscn" id="2_hvthm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpnev"]
 size = Vector3(2, 2, 2)
+
+[sub_resource type="Animation" id="Animation_c4yru"]
+resource_name = "cam_idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119, 0.6, 1, -0.493, 3.766, 6.231, 1, 1, -0.163565, 3.68354, 6.23119)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.207912, 0, 0, 0.978148, 0.4, 1, -0.173589, 0.0257793, 0.00454558, 0.98447, 1, 1, -0.207912, 0, 0, 0.978148)
+
+[sub_resource type="Animation" id="Animation_nnpio"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7k0br"]
+_data = {
+"RESET": SubResource("Animation_nnpio"),
+"cam_idle": SubResource("Animation_c4yru")
+}
 
 [node name="PlayerCharacter" type="Node3D"]
 
@@ -23,4 +57,10 @@ shape = SubResource("BoxShape3D_rpnev")
 [node name="CameraRotator" type="Node3D" parent="CharacterBody3D"]
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRotator"]
-transform = Transform3D(1, 0, 0, 0, 0.907777, 0.419452, 0, -0.419452, 0.907777, -0.163565, 3.68354, 6.23119)
+transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, -0.163565, 3.68354, 6.23119)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_7k0br")
+}
+autoplay = "cam_idle"

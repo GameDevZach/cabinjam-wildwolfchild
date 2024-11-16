@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1pnqfbhhgfj6"]
+[gd_scene load_steps=7 format=3 uid="uid://b1pnqfbhhgfj6"]
 
 [ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="1_5f5ji"]
 [ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_id278"]
 [ext_resource type="PackedScene" uid="uid://or6ofvpa0dv3" path="res://mobs/mob.tscn" id="3_yatxr"]
+[ext_resource type="PackedScene" uid="uid://dea16yfrbqk2c" path="res://ArtAssets/wolf.tscn" id="4_b0ggm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
@@ -35,3 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 1.39149, 8.77532)
 
 [node name="Mob2" parent="." instance=ExtResource("3_yatxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 1.39149, -5.54499)
+
+[node name="wolf" parent="." instance=ExtResource("4_b0ggm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8939, -9.53674e-07, -0.992958)

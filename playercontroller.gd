@@ -12,6 +12,10 @@ const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
 @onready var cameraRotator: Node3D = $CameraRotator
 @onready var camera: Camera3D = $CameraRotator/Camera3D
+@onready var cameraAnimator: AnimationPlayer = $CameraRotator/Camera3D/AnimationPlayer
+
+func _ready() -> void: 
+	cameraAnimator.speed_scale = 0.75
 
 func _input(event):
 	if(event is InputEventMouseMotion):
@@ -25,8 +29,10 @@ func _physics_process(delta: float) -> void:
 	if sprintTimer > 0:
 		sprintTimer -= delta
 		stamina -= delta * 5
-		if(sprintTimer <= 0):
+		if(sprintTimer <= 0 or stamina <= 0):
+			sprintTimer = 0
 			curSpeed = BASE_SPEED
+			cameraAnimator.speed_scale = 0.75
 	elif stamina < 100:
 		stamina += delta * 2
 
@@ -34,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("GoWild") and stamina > 20 and sprintTimer <= 0.0:#is_on_floor():
 		curSpeed = SPRINT_SPEED
 		sprintTimer = SPRINT_TIME
+		cameraAnimator.speed_scale = 1.5
 		#velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -55,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		var collider_name = collider.name
 
-		if(collider_name != "StaticBody3D"):
+		if(sprintTimer > 0 and collider_name != "StaticBody3D"):
 			print("I collided with ", collider_name)
 			if(collider_name == "MobBody"):
 				collider.die()

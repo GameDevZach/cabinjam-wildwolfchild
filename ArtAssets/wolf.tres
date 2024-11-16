@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://r6pb1hoe2sno"]
+
+[ext_resource type="Texture2D" uid="uid://do8n7krhbfw74" path="res://ArtAssets/WorldTexture.png" id="1_8i3fq"]
+
+[resource]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_8i3fq")

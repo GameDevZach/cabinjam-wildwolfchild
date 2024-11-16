@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnc0s12bge026"]
+[gd_scene load_steps=6 format=3 uid="uid://bnc0s12bge026"]
 
 [ext_resource type="Script" path="res://mobs/GibletsController.gd" id="1_4wro0"]
 [ext_resource type="Material" uid="uid://bms5ekcnoh80a" path="res://mobs/bloodParticleMaterial.tres" id="1_uqa64"]
 [ext_resource type="Material" uid="uid://4bjhp0qdrv1c" path="res://mobs/bloodMaterial.tres" id="2_xjvnj"]
+[ext_resource type="Material" uid="uid://c7q0ruyqmstw6" path="res://mobs/groundBloodParticle.tres" id="4_x4uqk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xvvtq"]
 material = ExtResource("2_xjvnj")
@@ -20,4 +21,13 @@ one_shot = true
 explosiveness = 0.8
 transform_align = 1
 process_material = ExtResource("1_uqa64")
+draw_pass_1 = SubResource("QuadMesh_xvvtq")
+
+[node name="BloodSploosh" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 30
+lifetime = 5.82
+explosiveness = 0.8
+transform_align = 1
+process_material = ExtResource("4_x4uqk")
 draw_pass_1 = SubResource("QuadMesh_xvvtq")

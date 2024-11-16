@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dea16yfrbqk2c"]
+
+[ext_resource type="PackedScene" uid="uid://bkacjovomofkv" path="res://ArtAssets/wolf.fbx" id="1_ks088"]
+[ext_resource type="Material" uid="uid://r6pb1hoe2sno" path="res://ArtAssets/wolf.tres" id="2_6y52v"]
+
+[node name="wolf" instance=ExtResource("1_ks088")]
+
+[node name="Skeleton3D" parent="WolfArmature" index="0"]
+bones/1/position = Vector3(0, 0.0079244, 0.000204616)
+bones/1/rotation = Quaternion(0.259945, 1.14929e-07, 3.16578e-08, 0.965623)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-1.00581e-16, 0.0123623, 4.21868e-10)
+bones/2/rotation = Quaternion(0.0646357, -6.6939e-10, 2.24762e-08, 0.997909)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(1.2678e-16, 0.0102578, 3.62314e-10)
+bones/3/rotation = Quaternion(0.0701917, -5.57738e-10, 2.25926e-08, 0.997534)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(-2.36332e-16, 0.00914419, 9.71791e-11)
+bones/4/rotation = Quaternion(0.094672, -2.4114e-09, 3.76277e-08, 0.995509)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(7.97518e-11, 0.00978675, -0.000334503)
+bones/5/rotation = Quaternion(0.199313, 5.95058e-07, 9.3217e-08, 0.979936)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(-3.4225e-09, 0.00696727, 0.0023925)
+bones/6/rotation = Quaternion(0.150348, -8.64291e-08, 2.01931e-07, 0.988633)
+bones/8/position = Vector3(-6.03063e-09, 0.00241854, 0.00421571)
+bones/8/rotation = Quaternion(0.23829, -1.24486e-07, 4.33279e-07, 0.971194)
+bones/8/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(0.00418423, 0.00422285, -0.00359379)
+bones/10/rotation = Quaternion(-0.656551, -0.0338608, -0.0322133, 0.752833)
+bones/12/rotation = Quaternion(0.0066388, -0.00663814, -0.529582, 0.848207)
+bones/12/scale = Vector3(1, 1, 1)
+
+[node name="WolfPupil" parent="WolfArmature/Skeleton3D" index="0"]
+material_override = ExtResource("2_6y52v")
+
+[node name="WolfNeck1" parent="WolfArmature/Skeleton3D" index="1"]
+material_override = ExtResource("2_6y52v")
+
+[node name="WolfNeck2" parent="WolfArmature/Skeleton3D" index="2"]
+material_override = ExtResource("2_6y52v")
+
+[node name="WolfNeck3" parent="WolfArmature/Skeleton3D" index="3"]
+material_override = ExtResource("2_6y52v")
+
+[node name="WolfHead" parent="WolfArmature/Skeleton3D" index="4"]
+material_override = ExtResource("2_6y52v")
+
+[node name="WolfNeck4" parent="WolfArmature/Skeleton3D" index="5"]
+material_override = ExtResource("2_6y52v")
