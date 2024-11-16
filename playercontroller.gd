@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * curSpeed
 		velocity.z = direction.z * curSpeed
 		var dir_angle = -Vector2(direction.x,direction.z).angle()
-		charNode.rotation.y = lerp_angle(charNode.rotation.y, dir_angle, 2*delta)
+		charNode.rotation.y = lerp_angle(charNode.rotation.y, dir_angle, (curSpeed * 0.5)*delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, curSpeed)
 		velocity.z = move_toward(velocity.z, 0, curSpeed)
