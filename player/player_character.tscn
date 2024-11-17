@@ -1,13 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://datixftma8uy6"]
+[gd_scene load_steps=15 format=3 uid="uid://datixftma8uy6"]
 
 [ext_resource type="Script" path="res://playercontroller.gd" id="1_6hnix"]
 [ext_resource type="PackedScene" uid="uid://c2h21kfqh3uk6" path="res://z_blendermeshes/cube.tscn" id="2_hvthm"]
 [ext_resource type="AudioStream" uid="uid://cdyufvke00mp1" path="res://Musique/Wolf_Wundernight_Looping.wav" id="3_bttn8"]
+[ext_resource type="PackedScene" uid="uid://c83pjx5w4e3a3" path="res://player/player_mesh.tscn" id="3_nh6vf"]
 [ext_resource type="AudioStream" uid="uid://bxfnx8ok8rj20" path="res://Musique/Wolf_Ultraviolence_Looping.wav" id="4_sew63"]
 [ext_resource type="Script" path="res://player/MenacingAura.gd" id="5_jehlj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpnev"]
 size = Vector3(2, 2, 2)
+
+[sub_resource type="Animation" id="Animation_nnpio"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119)
 
 [sub_resource type="Animation" id="Animation_c4yru"]
 resource_name = "cam_idle"
@@ -26,16 +37,6 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, -0.207912, 0, 0, 0.978148, 0.4, 1, -0.173589, 0.0257793, 0.00454558, 0.98447, 1, 1, -0.207912, 0, 0, 0.978148)
-
-[sub_resource type="Animation" id="Animation_nnpio"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7k0br"]
 _data = {
@@ -69,6 +70,9 @@ script = ExtResource("1_6hnix")
 [node name="CharRotator" type="Node3D" parent="CharacterBody3D"]
 
 [node name="CharMesh" parent="CharacterBody3D/CharRotator" instance=ExtResource("2_hvthm")]
+
+[node name="player" parent="CharacterBody3D/CharRotator" instance=ExtResource("3_nh6vf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.413293, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0243444, 0)

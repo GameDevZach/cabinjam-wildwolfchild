@@ -7,11 +7,13 @@ var curSpeed = 5.0
 const SPRINT_TIME = 5.0
 var sprintTimer = 0.0
 var stamina = 100.0
+var animState = "Idle"
 
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
 @onready var cameraRotator: Node3D = $CameraRotator
 @onready var camera: Camera3D = $CameraRotator/Camera3D
+@onready var playerAnimator: AnimationPlayer = $CharRotator/player/AnimationPlayer
 @onready var cameraAnimator: AnimationPlayer = $CameraRotator/Camera3D/AnimationPlayer
 @onready var BaseMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/BaseMusicStream
 @onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/WildMusicStream
@@ -20,6 +22,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready() -> void: 
 	cameraAnimator.speed_scale = 0.75
+	playerAnimator.play("PlayerArmature|Idle")
 
 func _input(event):
 	if(event is InputEventMouseMotion):
@@ -59,6 +62,9 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	var direction := (cameraRotator.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		if(animState == "Idle"):
+			playerAnimator.play("PlayerArmature|Run",0.5,2)
+			animState = "Run"
 		velocity.x = direction.x * curSpeed
 		velocity.z = direction.z * curSpeed
 		var dir_angle = -Vector2(direction.x,direction.z).angle()
@@ -66,6 +72,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, curSpeed)
 		velocity.z = move_toward(velocity.z, 0, curSpeed)
+		if(sprintTimer <= 0 and animState == "Run"):
+			playerAnimator.play("PlayerArmature|Idle",0.3)
+			animState = "Idle"
 
 	move_and_slide()
 	for i in get_slide_collision_count():
