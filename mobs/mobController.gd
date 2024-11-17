@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	if(isFleeing):
 		apply_central_impulse(fleeSpd * randf() * fleeVector * delta)
 
-func die() -> void:
+func die() -> bool:
 	if(isDead):
-		return
+		return false
 
 	var explosion = particles_scene.instantiate()
 	#explosion.position = position + Vector2(200,200)
@@ -28,10 +28,12 @@ func die() -> void:
 	explosion.position = global_position
 	queue_free()
 	isDead = true
+	return true
 	
 func flee(auraPosition: Vector3) -> void:
 	isFleeing = true
 	fleeVector = (global_position - auraPosition).normalized()
+	apply_central_impulse(fleeSpd * randf() * fleeVector * 0.1)
 	
 func stopFleeing() -> void:
 	isFleeing = false

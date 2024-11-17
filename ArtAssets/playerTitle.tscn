@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuou0uqgk54gw"]
+
+[ext_resource type="PackedScene" uid="uid://5aqvsbyshduc" path="res://ArtAssets/player.fbx" id="1_3ymkm"]
+[ext_resource type="Material" uid="uid://r6pb1hoe2sno" path="res://ArtAssets/wolf.tres" id="2_fkbim"]
+
+[node name="player" instance=ExtResource("1_3ymkm")]
+
+[node name="Skeleton3D" parent="PlayerArmature" index="0"]
+bones/1/position = Vector3(-1.31887e-10, 0.00530599, -1.71247e-11)
+bones/1/rotation = Quaternion(1.17657e-08, 5.62206e-09, 0.102335, 0.99475)
+bones/2/rotation = Quaternion(-0.0264426, -0.174146, -0.0534629, 0.982912)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.00195696, 0.010958, 3.42347e-10)
+bones/3/rotation = Quaternion(-0.0575936, 0.00519288, 0.266419, 0.962121)
+bones/4/rotation = Quaternion(0.0147403, 7.7553e-05, 0.00985819, 0.999843)
+bones/6/rotation = Quaternion(-0.00985819, 0.999843, -0.0147403, 7.76808e-05)
+bones/12/position = Vector3(-0.00109728, 0.00598151, -0.00415508)
+bones/12/rotation = Quaternion(-0.825968, 0.125392, 0.271452, 0.477878)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.144718, 0.0931613, -0.0999977, 0.979989)
+bones/15/position = Vector3(-0.00109728, 0.00598151, 0.00507604)
+bones/15/rotation = Quaternion(-0.414453, 0.694235, 0.212387, -0.548779)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.102197, -0.0418791, 0.059205, 0.992117)
+bones/19/rotation = Quaternion(-0.453461, 0.577076, 0.233279, 0.637916)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(0.0407659, -0.00961969, 0.0914651, 0.994927)
+bones/21/rotation = Quaternion(-0.662067, -0.074858, -0.0261938, 0.745237)
+bones/23/position = Vector3(0.00104506, -0.00138667, 0.00372735)
+bones/23/rotation = Quaternion(-0.0200254, 0.693075, 0.249475, 0.676024)
+bones/24/rotation = Quaternion(0.246698, 0.00718977, -0.100989, 0.963789)
+bones/25/rotation = Quaternion(-0.651888, 0.0874864, 0.033764, 0.752495)
+
+[node name="Head2" parent="PlayerArmature/Skeleton3D" index="0"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Hat" parent="PlayerArmature/Skeleton3D" index="1"]
+material_override = ExtResource("2_fkbim")
+
+[node name="UpperArm_L" parent="PlayerArmature/Skeleton3D" index="2"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Body" parent="PlayerArmature/Skeleton3D" index="3"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Leg_L" parent="PlayerArmature/Skeleton3D" index="4"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Foot_L" parent="PlayerArmature/Skeleton3D" index="5"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Hand_L" parent="PlayerArmature/Skeleton3D" index="6"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Hand_R" parent="PlayerArmature/Skeleton3D" index="7"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Leg_R" parent="PlayerArmature/Skeleton3D" index="8"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Foot_R" parent="PlayerArmature/Skeleton3D" index="9"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Pupil_L" parent="PlayerArmature/Skeleton3D" index="10"]
+material_override = ExtResource("2_fkbim")
+
+[node name="Pupil_R" parent="PlayerArmature/Skeleton3D" index="11"]
+material_override = ExtResource("2_fkbim")
+
+[node name="UpperArm_R" parent="PlayerArmature/Skeleton3D" index="12"]
+material_override = ExtResource("2_fkbim")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "PlayerArmature|Idle"
+speed_scale = 0.442

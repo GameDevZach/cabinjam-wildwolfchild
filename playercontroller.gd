@@ -8,6 +8,8 @@ const SPRINT_TIME = 5.0
 var sprintTimer = 0.0
 var stamina = 100.0
 var animState = "Idle"
+var actualScore = 0
+var displayScore = 0
 
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
@@ -19,6 +21,7 @@ const JUMP_VELOCITY = 4.5
 @onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/CamAdjustor/Camera3D/WildMusicStream
 @onready var MenacingAura: Area3D = $Area3D
 @onready var StaminaBar: ProgressBar = $Control/ProgressBar
+@onready var ScoreLabel: Label = $Control/ScoreLabel
 
 func _ready() -> void: 
 	cameraAnimator.speed_scale = 0.75
@@ -41,9 +44,17 @@ func _physics_process(delta: float) -> void:
 			sprintTimer = 0
 			curSpeed = BASE_SPEED
 			cameraAnimator.speed_scale = 0.75
-			WildMusicStream.volume_db = -80.0
-			BaseMusicStream.volume_db = 0.0
+			#WildMusicStream.volume_db = -80.0
+			#BaseMusicStream.volume_db = 0.0
+			BaseMusicStream.pitch_scale = 1
 			MenacingAura.isWild = false
+			if(animState == "Frenzy"):
+				if(velocity.length() <= 0.01):
+					animState = "Idle"
+					playerAnimator.play("PlayerArmature|Idle",0.2)
+				else:
+					animState = "Run"
+					playerAnimator.play("PlayerArmature|Run",0.2,1.8)
 	elif stamina < 100:
 		stamina += delta * 2
 
@@ -52,8 +63,9 @@ func _physics_process(delta: float) -> void:
 		curSpeed = SPRINT_SPEED
 		sprintTimer = SPRINT_TIME
 		cameraAnimator.speed_scale = 1.5
-		WildMusicStream.volume_db = 0.0
-		BaseMusicStream.volume_db = -80.0
+		#WildMusicStream.volume_db = 0.0
+		#BaseMusicStream.volume_db = -80.0
+		BaseMusicStream.pitch_scale = 0.5
 		MenacingAura.isWild = true
 		playerAnimator.play("PlayerArmature|Frenzy1",0.25,2)
 		animState = "Frenzy"
@@ -65,12 +77,12 @@ func _physics_process(delta: float) -> void:
 	var direction := (cameraRotator.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		if(animState == "Idle"):
-			playerAnimator.play("PlayerArmature|Run",0.25,1.75)
+			playerAnimator.play("PlayerArmature|Run",0.25,1.95)
 			animState = "Run"
 		velocity.x = direction.x * curSpeed
 		velocity.z = direction.z * curSpeed
 		var _theta = wrapf(atan2(direction.x, direction.z) - charNode.rotation.y, -PI, PI)
-		charNode.rotation.y += clamp(curSpeed * 0.5 * delta, 0, abs(_theta)) * sign(_theta)
+		charNode.rotation.y += clamp(max(5,curSpeed * 0.5) * delta, 0, abs(_theta)) * sign(_theta)
 		#charNode.rotation.y = lerp_angle(charNode.global_rotation.y, dir_angle, (curSpeed * 0.5)*delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, curSpeed)
@@ -87,4 +99,6 @@ func _physics_process(delta: float) -> void:
 
 		if(sprintTimer > 0 and collider_name != "StaticBody3D"):
 			if(collider_name == "MobBody"):
-				collider.die()
+				if(collider.die()):
+					stamina = min(100,stamina + 10)
+					actualScore += 20
