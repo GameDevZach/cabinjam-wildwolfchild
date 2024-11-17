@@ -81,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.11155)
 environment = SubResource("Environment_vjb2t")
 
 [node name="player" parent="." instance=ExtResource("1_ka6ko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.81128, 1.48751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.43153, 1.48751)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_oe3gs")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1pnqfbhhgfj6"]
+[gd_scene load_steps=20 format=3 uid="uid://b1pnqfbhhgfj6"]
 
 [ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="1_5f5ji"]
 [ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_id278"]
 [ext_resource type="PackedScene" uid="uid://or6ofvpa0dv3" path="res://mobs/mob.tscn" id="3_yatxr"]
-[ext_resource type="PackedScene" uid="uid://dea16yfrbqk2c" path="res://ArtAssets/wolf.tscn" id="4_b0ggm"]
 [ext_resource type="PackedScene" uid="uid://b5tnqn8xd8cve" path="res://ArtAssets/p_skull_antlers.fbx" id="5_y16fg"]
 [ext_resource type="PackedScene" uid="uid://nerumkqiisuy" path="res://ArtAssets/p_bone00.fbx" id="6_dmqer"]
 [ext_resource type="PackedScene" uid="uid://c14yks0mkcwa5" path="res://ArtAssets/p_blooddrop_light.fbx" id="7_5cwvu"]
@@ -13,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c0ynkp12gnbdh" path="res://ArtAssets/e_bush02.fbx" id="12_181i0"]
 [ext_resource type="PackedScene" uid="uid://bhl4arutq0a16" path="res://ArtAssets/e_bush01.fbx" id="13_uaojn"]
 [ext_resource type="PackedScene" uid="uid://dfdkavqxonwu3" path="res://ArtAssets/e_bush00.fbx" id="14_53ae4"]
+[ext_resource type="Material" uid="uid://dyryyyiyaj3h3" path="res://ArtAssets/frameMaterial.tres" id="14_luah5"]
+[ext_resource type="Texture2D" uid="uid://d0g8bj48h105i" path="res://ArtAssets/frame_tex01.png" id="15_ppgam"]
 [ext_resource type="PackedScene" uid="uid://8hq52kenq8cl" path="res://Environment/tree.tscn" id="15_yghri"]
+[ext_resource type="Shader" path="res://flickery.gdshader" id="16_rxas4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
@@ -24,6 +26,9 @@ ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8fgg"]
+shader = ExtResource("16_rxas4")
 
 [node name="Node3D" type="Node3D"]
 
@@ -125,9 +130,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4158, 1.39149, -8.41588)
 [node name="Mob5" parent="." instance=ExtResource("3_yatxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61993, 1.39149, -18.6405)
 
-[node name="wolf" parent="." instance=ExtResource("4_b0ggm")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -25.8939, -4.40141, -7.33581)
-
 [node name="p_skull_antlers" parent="." instance=ExtResource("5_y16fg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88411, 8.71889, -1.15264)
 
@@ -157,3 +159,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8037, 0, 10.6336)
 
 [node name="e_tree2" parent="." instance=ExtResource("15_yghri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0019, 0, 2.76056)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(125.3, 1, 234.73)
+
+[node name="ControlFrames" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlFrames"]
+visible = false
+material = ExtResource("14_luah5")
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+texture = ExtResource("15_ppgam")
+
+[node name="Sprite2D" type="Sprite2D" parent="ControlFrames"]
+material = SubResource("ShaderMaterial_g8fgg")
+position = Vector2(576, 326)
+texture = ExtResource("15_ppgam")
