@@ -1,18 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnc0s12bge026"]
+[gd_scene load_steps=6 format=3 uid="uid://bnc0s12bge026"]
 
 [ext_resource type="Script" path="res://mobs/GibletsController.gd" id="1_4wro0"]
-[ext_resource type="Material" uid="uid://bms5ekcnoh80a" path="res://mobs/bloodParticleMaterial.tres" id="1_uqa64"]
 [ext_resource type="Material" uid="uid://r6pb1hoe2sno" path="res://ArtAssets/wolf.tres" id="2_kphlw"]
 [ext_resource type="ArrayMesh" uid="uid://bvocfjikx0o0y" path="res://ArtAssets/lightBloodDrop.obj" id="4_snq2r"]
-[ext_resource type="Material" uid="uid://c7q0ruyqmstw6" path="res://mobs/groundBloodParticle.tres" id="4_x4uqk"]
 [ext_resource type="ArrayMesh" uid="uid://n6b2fmgrlqyv" path="res://ArtAssets/darkBloodDrop.obj" id="6_vrpas"]
-[ext_resource type="Material" uid="uid://bggou0bva5lg2" path="res://mobs/bonezParticleProcess.tres" id="7_0lkxa"]
 [ext_resource type="ArrayMesh" uid="uid://4kfhh4dnen0p" path="res://ArtAssets/bone.obj" id="7_pap68"]
 
 [node name="Giblets" type="Node3D"]
 script = ExtResource("1_4wro0")
 
-[node name="BloodSplosion" type="GPUParticles3D" parent="."]
+[node name="BloodSplosion" type="CPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
 cast_shadow = 0
 extra_cull_margin = 10.4
@@ -22,11 +19,19 @@ lifetime = 2.8
 one_shot = true
 explosiveness = 1.0
 randomness = 0.05
-transform_align = 1
-process_material = ExtResource("1_uqa64")
-draw_pass_1 = ExtResource("4_snq2r")
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("4_snq2r")
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -5, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 12.0
+damping_max = 1.0
+scale_amount_min = 0.2
 
-[node name="BloodSploosh" type="GPUParticles3D" parent="."]
+[node name="BloodSploosh" type="CPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
 cast_shadow = 0
 extra_cull_margin = 12.6
@@ -35,11 +40,22 @@ amount = 45
 lifetime = 5.82
 one_shot = true
 explosiveness = 0.8
-transform_align = 1
-process_material = ExtResource("4_x4uqk")
-draw_pass_1 = ExtResource("6_vrpas")
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("6_vrpas")
+particle_flag_align_y = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.5
+damping_min = 2.632
+damping_max = 9.211
+scale_amount_min = 0.08
+scale_amount_max = 0.6
 
-[node name="Bonez" type="GPUParticles3D" parent="."]
+[node name="Bonez" type="CPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
 extra_cull_margin = 11.05
 emitting = false
@@ -47,5 +63,20 @@ amount = 10
 lifetime = 10.0
 one_shot = true
 explosiveness = 1.0
-process_material = ExtResource("7_0lkxa")
-draw_pass_1 = ExtResource("7_pap68")
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = ExtResource("7_pap68")
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -7, 0)
+initial_velocity_min = 7.0
+initial_velocity_max = 18.0
+angular_velocity_min = -167.44
+angular_velocity_max = 150.0
+angle_min = -110.6
+angle_max = 200.2
+scale_amount_min = 0.5
+scale_amount_max = 1.3

@@ -1,7 +1,7 @@
 extends Node3D
 
 var deleteTimer = 10.0
-@onready var leafSplosion: GPUParticles3D = $LeafSplosion
+@onready var leafSplosion: CPUParticles3D = $LeafSplosion
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

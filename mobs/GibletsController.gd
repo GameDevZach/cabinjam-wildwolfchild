@@ -1,9 +1,9 @@
 extends Node3D
 
 var deleteTimer = 10.0
-@onready var bloodSplosion: GPUParticles3D = $BloodSplosion
-@onready var bloodSploosh: GPUParticles3D = $BloodSploosh
-@onready var bonez: GPUParticles3D = $Bonez
+@onready var bloodSplosion: CPUParticles3D = $BloodSplosion
+@onready var bloodSploosh: CPUParticles3D = $BloodSploosh
+@onready var bonez: CPUParticles3D = $Bonez
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

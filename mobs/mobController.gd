@@ -25,6 +25,12 @@ func _physics_process(delta: float) -> void:
 		apply_central_impulse(fleeSpd * randf() * fleeVector * delta)
 		var _theta = wrapf(atan2(linear_velocity.x, linear_velocity.z) - rotation.y, -PI, PI)
 		rotation.y += clamp(5 * delta, 0, abs(_theta)) * sign(_theta)
+	else:
+		if(randf() > 0.95):
+			var randomImpulse = Vector3(randf_range(-1,1),0,randf_range(-1,1))
+			apply_central_impulse(fleeSpd * randf() * fleeVector * 30 * delta)
+			var _theta = wrapf(atan2(randomImpulse.x, randomImpulse.z) - rotation.y, -PI, PI)
+			rotation.y += clamp(20 * delta, 0, abs(_theta)) * sign(_theta)
 
 func die() -> bool:
 	if(isDead):
