@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpw4u03r08vcj"]
+[gd_scene load_steps=9 format=3 uid="uid://cpw4u03r08vcj"]
 
 [ext_resource type="PackedScene" uid="uid://dea16yfrbqk2c" path="res://ArtAssets/wolf.tscn" id="1_10a5l"]
 [ext_resource type="Texture2D" uid="uid://c16ouh1brm2g4" path="res://ArtAssets/frame_tex02.png" id="2_bnp1g"]
 [ext_resource type="Texture2D" uid="uid://8uxmqat68t0h" path="res://ArtAssets/frame_tex03.png" id="3_fkjmb"]
 [ext_resource type="Texture2D" uid="uid://wuaioo5r4q0" path="res://ArtAssets/frame_tex04.png" id="4_x3f7i"]
+[ext_resource type="PackedScene" uid="uid://btti28qqt4f5r" path="res://ArtAssets/e_star.fbx" id="5_0myrg"]
+[ext_resource type="PackedScene" uid="uid://d0krvms81j6o1" path="res://ArtAssets/e_tree.fbx" id="6_23fcn"]
 
 [sub_resource type="Environment" id="Environment_nhj05"]
 background_mode = 1
@@ -35,7 +37,7 @@ environment = SubResource("Environment_nhj05")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369991, 3.82936)
 
 [node name="wolf" parent="." instance=ExtResource("1_10a5l")]
-transform = Transform3D(-5.50763e-08, 0, -1.26, 0, 1.26, 0, 1.26, 0, -5.50763e-08, 2.83095, -3.68076, -1.9967)
+transform = Transform3D(-6.95011e-08, 0, -1.59, 0, 1.59, 0, 1.59, 0, -6.95011e-08, 4.5441, -3.68076, -1.9967)
 textBlocks = Array[String](["Sweet pup, My child.  You’ve been with us for many moons.", "But each day the forest grows smaller. There may come a time when I’m no longer here.", "When that day comes, The pack will look to you to lead.", "Do not go seeking revenge. Stay away from the meadow.", ""])
 
 [node name="Control" type="Control" parent="."]
@@ -50,3 +52,15 @@ position = Vector2(575.5, 325)
 scale = Vector2(0.999132, 1.00617)
 sprite_frames = SubResource("SpriteFrames_mytn7")
 autoplay = "default"
+
+[node name="e_star" parent="." instance=ExtResource("5_0myrg")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 5.51808, 2.7638, -4.33811)
+
+[node name="e_star2" parent="." instance=ExtResource("5_0myrg")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -4.45163, -0.201926, -4.33811)
+
+[node name="e_star3" parent="." instance=ExtResource("5_0myrg")]
+transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -7.50919, 4.57998, -4.33811)
+
+[node name="e_tree" parent="." instance=ExtResource("6_23fcn")]
+transform = Transform3D(-2.05662e-06, -2.975, 0, 47.05, -1.30041e-07, 0, 0, 0, 1.26, 53.789, 0, -11.435)

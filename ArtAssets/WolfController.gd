@@ -7,6 +7,7 @@ extends Node3D
 @onready var textLabel: RichTextLabel = $Control/RichTextLabel
 
 var currentTextBlock: int = 0
+var isFading: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +21,8 @@ func _process(delta: float) -> void:
 		if(currentTextBlock < 4):
 			playNextTextBlock()
 		else:
-			get_tree().change_scene_to_file("res://testscene.tscn")
+			isFading = true
+			textAnimPlayer.play("FadeOut")
 	
 func playNextTextBlock() -> void:
 	#textLabel.add_text(textBlocks[currentTextBlock])
@@ -28,5 +30,8 @@ func playNextTextBlock() -> void:
 	currentTextBlock += 1
 	textLabel.visible_ratio = 0
 	textAnimPlayer.play("Text|BlessYouChild")
+	
+func StartPlaying() -> void:
+	get_tree().change_scene_to_file("res://testscene.tscn")
 	
 	
