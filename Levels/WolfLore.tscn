@@ -34,7 +34,8 @@ animations = [{
 environment = SubResource("Environment_nhj05")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369991, 3.82936)
+transform = Transform3D(1, 0, 0, 0, 0.995285, -0.0969923, 0, 0.0969923, 0.995285, 0.110256, -0.0415937, 5.55276)
+fov = 51.4
 
 [node name="wolf" parent="." instance=ExtResource("1_10a5l")]
 transform = Transform3D(-6.95011e-08, 0, -1.59, 0, 1.59, 0, 1.59, 0, -6.95011e-08, 4.5441, -3.68076, -1.9967)
@@ -54,13 +55,13 @@ sprite_frames = SubResource("SpriteFrames_mytn7")
 autoplay = "default"
 
 [node name="e_star" parent="." instance=ExtResource("5_0myrg")]
-transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 5.51808, 2.7638, -4.33811)
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 5.51808, 1.76391, -4.33811)
 
 [node name="e_star2" parent="." instance=ExtResource("5_0myrg")]
-transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -4.45163, -0.201926, -4.33811)
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -3.34436, -1.88299, -4.33811)
 
 [node name="e_star3" parent="." instance=ExtResource("5_0myrg")]
-transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -7.50919, 4.57998, -4.33811)
+transform = Transform3D(0.744127, -0.00543886, -0.0356432, 0.00545575, 0.74498, 0.000222416, 0.0356406, -0.000483178, 0.744147, -6.14231, 3.29169, -4.33811)
 
 [node name="e_tree" parent="." instance=ExtResource("6_23fcn")]
 transform = Transform3D(-2.05662e-06, -2.975, 0, 47.05, -1.30041e-07, 0, 0, 0, 1.26, 53.789, 0, -11.435)
