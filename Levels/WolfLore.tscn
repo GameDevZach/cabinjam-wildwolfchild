@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpw4u03r08vcj"]
+
+[ext_resource type="PackedScene" uid="uid://dea16yfrbqk2c" path="res://ArtAssets/wolf.tscn" id="1_10a5l"]
+
+[sub_resource type="Environment" id="Environment_nhj05"]
+background_mode = 1
+background_color = Color(0, 0.101961, 0.0745098, 1)
+
+[node name="WolfLore" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nhj05")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369991, 3.82936)
+
+[node name="wolf" parent="." instance=ExtResource("1_10a5l")]
+transform = Transform3D(-5.50763e-08, 0, -1.26, 0, 1.26, 0, 1.26, 0, -5.50763e-08, 2.83095, -3.68076, -1.9967)

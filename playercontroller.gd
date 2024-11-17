@@ -9,7 +9,7 @@ var sprintTimer = 0.0
 var stamina = 100.0
 var animState = "Idle"
 var actualScore = 0
-var displayScore = 0
+var displayScore = -1
 
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
@@ -24,6 +24,7 @@ const JUMP_VELOCITY = 4.5
 @onready var ScoreLabel: Label = $Control/ScoreLabel
 
 func _ready() -> void: 
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	cameraAnimator.speed_scale = 0.75
 	playerAnimator.play("PlayerArmature|Idle")
 
@@ -36,6 +37,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if displayScore < actualScore:
+		displayScore += 1
+		ScoreLabel.text = str(displayScore)
 
 	if sprintTimer > 0:
 		sprintTimer -= delta
@@ -54,7 +58,7 @@ func _physics_process(delta: float) -> void:
 					playerAnimator.play("PlayerArmature|Idle",0.2)
 				else:
 					animState = "Run"
-					playerAnimator.play("PlayerArmature|Run",0.2,1.8)
+					playerAnimator.play("PlayerArmature|Run",0.2,1.55)
 	elif stamina < 100:
 		stamina += delta * 2
 
@@ -65,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		cameraAnimator.speed_scale = 1.5
 		#WildMusicStream.volume_db = 0.0
 		#BaseMusicStream.volume_db = -80.0
-		BaseMusicStream.pitch_scale = 0.5
+		BaseMusicStream.pitch_scale = 2
 		MenacingAura.isWild = true
 		playerAnimator.play("PlayerArmature|Frenzy1",0.25,2)
 		animState = "Frenzy"
@@ -77,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	var direction := (cameraRotator.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		if(animState == "Idle"):
-			playerAnimator.play("PlayerArmature|Run",0.25,1.95)
+			playerAnimator.play("PlayerArmature|Run",0.25,1.55)
 			animState = "Run"
 		velocity.x = direction.x * curSpeed
 		velocity.z = direction.z * curSpeed

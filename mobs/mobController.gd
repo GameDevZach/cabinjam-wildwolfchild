@@ -1,6 +1,9 @@
 extends RigidBody3D
 
 @export var particles_scene: PackedScene
+@export var idleAnimation: String
+@export var runAnimation: String
+@onready var animPlayer: AnimationPlayer = $MobMesh/AnimationPlayer
 var isDead: bool = false
 var isFleeing: bool = false
 var fleeVector: Vector3
@@ -8,6 +11,7 @@ var fleeSpd: float = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animPlayer.play(idleAnimation)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +21,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if(isFleeing):
 		apply_central_impulse(fleeSpd * randf() * fleeVector * delta)
+		var _theta = wrapf(atan2(linear_velocity.x, linear_velocity.z) - rotation.y, -PI, PI)
+		rotation.y += clamp(5 * delta, 0, abs(_theta)) * sign(_theta)
 
 func die() -> bool:
 	if(isDead):
@@ -32,8 +38,10 @@ func die() -> bool:
 	
 func flee(auraPosition: Vector3) -> void:
 	isFleeing = true
+	animPlayer.play(runAnimation,0.2)
 	fleeVector = (global_position - auraPosition).normalized()
 	apply_central_impulse(fleeSpd * randf() * fleeVector * 0.1)
 	
 func stopFleeing() -> void:
+	animPlayer.play(idleAnimation,0.1)
 	isFleeing = false

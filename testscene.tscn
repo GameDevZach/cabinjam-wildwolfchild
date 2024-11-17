@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1pnqfbhhgfj6"]
+[gd_scene load_steps=19 format=3 uid="uid://b1pnqfbhhgfj6"]
 
 [ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="1_5f5ji"]
 [ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_id278"]
@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://dyryyyiyaj3h3" path="res://ArtAssets/frameMaterial.tres" id="14_luah5"]
 [ext_resource type="Texture2D" uid="uid://d0g8bj48h105i" path="res://ArtAssets/frame_tex01.png" id="15_ppgam"]
 [ext_resource type="PackedScene" uid="uid://8hq52kenq8cl" path="res://Environment/tree.tscn" id="15_yghri"]
-[ext_resource type="Shader" path="res://flickery.gdshader" id="16_rxas4"]
+[ext_resource type="Texture2D" uid="uid://c16ouh1brm2g4" path="res://ArtAssets/frame_tex02.png" id="16_nc2al"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
@@ -26,9 +26,6 @@ ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8fgg"]
-shader = ExtResource("16_rxas4")
 
 [node name="Node3D" type="Node3D"]
 
@@ -179,6 +176,7 @@ offset_bottom = 649.0
 texture = ExtResource("15_ppgam")
 
 [node name="Sprite2D" type="Sprite2D" parent="ControlFrames"]
-material = SubResource("ShaderMaterial_g8fgg")
 position = Vector2(576, 326)
-texture = ExtResource("15_ppgam")
+texture = ExtResource("16_nc2al")
+
+[node name="FrameAnimator" type="AnimationPlayer" parent="ControlFrames"]
