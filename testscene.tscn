@@ -49,7 +49,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("AnimatedSprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -76,7 +76,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("AnimatedSprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -93,23 +93,6 @@ _data = {
 "StayAway": SubResource("Animation_1kl1n")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5ql7l"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_nc2al")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_au33p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_dcora")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ejl8p"]
 animations = [{
 "frames": [{
@@ -121,6 +104,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("21_7fgt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ql7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nc2al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_au33p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dcora")
 }],
 "loop": true,
 "name": &"default",
@@ -287,17 +287,17 @@ libraries = {
 }
 autoplay = "StayAway"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlFrames"]
-modulate = Color(0.956863, 0.839216, 0.588235, 1)
-position = Vector2(575.5, 325)
-scale = Vector2(0.999132, 1.00617)
-sprite_frames = SubResource("SpriteFrames_5ql7l")
-autoplay = "default"
-frame_progress = 0.436224
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlFrames"]
 modulate = Color(0.956863, 0.839216, 0.588235, 1)
 position = Vector2(581, 326)
 sprite_frames = SubResource("SpriteFrames_ejl8p")
 autoplay = "default"
 frame_progress = 0.701413
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlFrames"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(575.5, 325)
+scale = Vector2(0.999132, 1.00617)
+sprite_frames = SubResource("SpriteFrames_5ql7l")
+autoplay = "default"
+frame_progress = 0.436224

@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpw4u03r08vcj"]
+[gd_scene load_steps=7 format=3 uid="uid://cpw4u03r08vcj"]
 
 [ext_resource type="PackedScene" uid="uid://dea16yfrbqk2c" path="res://ArtAssets/wolf.tscn" id="1_10a5l"]
+[ext_resource type="Texture2D" uid="uid://c16ouh1brm2g4" path="res://ArtAssets/frame_tex02.png" id="2_bnp1g"]
+[ext_resource type="Texture2D" uid="uid://8uxmqat68t0h" path="res://ArtAssets/frame_tex03.png" id="3_fkjmb"]
+[ext_resource type="Texture2D" uid="uid://wuaioo5r4q0" path="res://ArtAssets/frame_tex04.png" id="4_x3f7i"]
 
 [sub_resource type="Environment" id="Environment_nhj05"]
 background_mode = 1
 background_color = Color(0, 0.101961, 0.0745098, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mytn7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bnp1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fkjmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x3f7i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="WolfLore" type="Node3D"]
 
@@ -17,3 +37,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369991, 3.82936)
 [node name="wolf" parent="." instance=ExtResource("1_10a5l")]
 transform = Transform3D(-5.50763e-08, 0, -1.26, 0, 1.26, 0, 1.26, 0, -5.50763e-08, 2.83095, -3.68076, -1.9967)
 textBlocks = Array[String](["Sweet pup, My child.  You’ve been with us for many moons.", "But each day the forest grows smaller. There may come a time when I’m no longer here.", "When that day comes, The pack will look to you to lead.", "Do not go seeking revenge. Stay away from the meadow.", ""])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(575.5, 325)
+scale = Vector2(0.999132, 1.00617)
+sprite_frames = SubResource("SpriteFrames_mytn7")
+autoplay = "default"
