@@ -10,6 +10,7 @@ var stamina = 100.0
 var animState = "Idle"
 var actualScore = 0
 var displayScore = -1
+var capturingMouse: bool = true
 
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
@@ -62,6 +63,14 @@ func _physics_process(delta: float) -> void:
 	elif stamina < 100:
 		stamina += delta * 2
 
+	# Handl mouse capture
+	if Input.is_action_just_pressed("Esc"):
+		if(capturingMouse):
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			capturingMouse = false
+		else:
+			capturingMouse = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Handle WILD.
 	if Input.is_action_just_pressed("GoWild") and stamina > 20 and sprintTimer <= 0.0:#is_on_floor():
 		curSpeed = SPRINT_SPEED

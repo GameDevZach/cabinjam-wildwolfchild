@@ -34,6 +34,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"WolfArmature|IdleTalk", 0.175],
+"method": &"play"
+}, {
+"args": [&"WolfArmature|Idle", 0.33],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f57lc"]
 _data = {
@@ -45,6 +62,7 @@ _data = {
 
 [node name="wolf" instance=ExtResource("1_ks088")]
 script = ExtResource("2_5vsb3")
+textBlocks = Array[String](["Sweet pup, My child. [br]You’ve been with us for many moons.", "But each day the forest grows smaller.[br]There may come a time when I’m no longer here.", "When that day comes,[br]The pack will look to you to lead.", "Do not go seeking revenge.[br]Stay away from the meadow.", ""])
 
 [node name="Skeleton3D" parent="WolfArmature" index="0"]
 bones/1/position = Vector3(0, 0.0079244, 0.000204616)
@@ -113,7 +131,6 @@ scroll_active = false
 libraries = {
 "": SubResource("AnimationLibrary_f57lc")
 }
-autoplay = "Text|BlessYouChild"
 
 [node name="Label" type="Label" parent="Control" index="2"]
 layout_mode = 0

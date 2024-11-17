@@ -16,3 +16,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369991, 3.82936)
 
 [node name="wolf" parent="." instance=ExtResource("1_10a5l")]
 transform = Transform3D(-5.50763e-08, 0, -1.26, 0, 1.26, 0, 1.26, 0, -5.50763e-08, 2.83095, -3.68076, -1.9967)
+textBlocks = Array[String](["Sweet pup, My child.  You’ve been with us for many moons.", "But each day the forest grows smaller. There may come a time when I’m no longer here.", "When that day comes, The pack will look to you to lead.", "Do not go seeking revenge. Stay away from the meadow.", ""])

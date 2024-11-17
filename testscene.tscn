@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1pnqfbhhgfj6"]
+[gd_scene load_steps=29 format=3 uid="uid://b1pnqfbhhgfj6"]
 
 [ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="1_5f5ji"]
 [ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_id278"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://d0g8bj48h105i" path="res://ArtAssets/frame_tex01.png" id="15_ppgam"]
 [ext_resource type="PackedScene" uid="uid://8hq52kenq8cl" path="res://Environment/tree.tscn" id="15_yghri"]
 [ext_resource type="Texture2D" uid="uid://c16ouh1brm2g4" path="res://ArtAssets/frame_tex02.png" id="16_nc2al"]
+[ext_resource type="Texture2D" uid="uid://8uxmqat68t0h" path="res://ArtAssets/frame_tex03.png" id="17_au33p"]
+[ext_resource type="Texture2D" uid="uid://wuaioo5r4q0" path="res://ArtAssets/frame_tex04.png" id="18_dcora"]
+[ext_resource type="Texture2D" uid="uid://ejf3vfudtew5" path="res://ArtAssets/stayaway01.png" id="19_tvqlf"]
+[ext_resource type="Texture2D" uid="uid://cmq5mxddj0qf5" path="res://ArtAssets/stayaway02.png" id="20_ilhtt"]
+[ext_resource type="Texture2D" uid="uid://cm064u23g8bgs" path="res://ArtAssets/stayaway03.png" id="21_7fgt6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
@@ -26,6 +31,101 @@ ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_1kl1n"]
+resource_name = "StayAway"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 5.03333, 6.83333, 7.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.956863, 0.839216, 0.588235, 0), Color(0.956863, 0.839216, 0.588235, 1), Color(0.956863, 0.839216, 0.588235, 1), Color(0.767072, 0, 0, 0.388235), Color(0.546448, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.03333, 6.86667, 7.96667, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.956863, 0.839216, 0.588235, 1), Color(0.461895, 0, 0, 0.392157), Color(0.5991, 0, 0, 0.392157), Color(0.956863, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5no11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.956863, 0.839216, 0.588235, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.956863, 0.839216, 0.588235, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhh64"]
+_data = {
+"RESET": SubResource("Animation_5no11"),
+"StayAway": SubResource("Animation_1kl1n")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ql7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nc2al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_au33p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dcora")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejl8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_tvqlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ilhtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7fgt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node3D" type="Node3D"]
 
@@ -140,10 +240,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76923, 4.31748, 5.85834)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53891, 2.85726, 6.56443)
 
 [node name="e_star" parent="." instance=ExtResource("10_ymuwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12632, 9.4804, 8.53539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8226, 32.3638, 116.7)
+
+[node name="e_star2" parent="." instance=ExtResource("10_ymuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9513, 55.6658, 116.7)
+
+[node name="e_star3" parent="." instance=ExtResource("10_ymuwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9513, 57.6816, 198.604)
 
 [node name="e_dots" parent="." instance=ExtResource("11_qdv0k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4469, -0.102046, 8.74974)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.4469, 0.00597525, 8.74974)
 
 [node name="e_bush02" parent="." instance=ExtResource("12_181i0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8243, 1.50281, 4.21289)
@@ -175,8 +281,23 @@ offset_right = 1151.0
 offset_bottom = 649.0
 texture = ExtResource("15_ppgam")
 
-[node name="Sprite2D" type="Sprite2D" parent="ControlFrames"]
-position = Vector2(576, 326)
-texture = ExtResource("16_nc2al")
-
 [node name="FrameAnimator" type="AnimationPlayer" parent="ControlFrames"]
+libraries = {
+"": SubResource("AnimationLibrary_rhh64")
+}
+autoplay = "StayAway"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlFrames"]
+modulate = Color(0.956863, 0.839216, 0.588235, 1)
+position = Vector2(575.5, 325)
+scale = Vector2(0.999132, 1.00617)
+sprite_frames = SubResource("SpriteFrames_5ql7l")
+autoplay = "default"
+frame_progress = 0.436224
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ControlFrames"]
+modulate = Color(0.956863, 0.839216, 0.588235, 1)
+position = Vector2(581, 326)
+sprite_frames = SubResource("SpriteFrames_ejl8p")
+autoplay = "default"
+frame_progress = 0.701413
