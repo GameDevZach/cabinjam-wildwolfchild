@@ -511,6 +511,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9513, 57.6816, 198.604)
 [node name="e_dots" parent="." instance=ExtResource("11_qdv0k")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.4469, 0.00597525, 8.74974)
 
+[node name="e_dots2" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -11.5241, 0.00597525, -12.1853)
+
+[node name="e_dots3" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.5584, 0.00597525, -30.997)
+
+[node name="e_dots4" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 35.3735, 0.00597525, -21.8523)
+
+[node name="e_dots5" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 23.8893, 0.00597716, 6.53754)
+
+[node name="e_dots6" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 60.6503, 0.00597716, 50.4359)
+
+[node name="e_dots7" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 30.5609, 0.00597716, 50.8937)
+
+[node name="e_dots8" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 78.7813, 0.00597716, 45.7851)
+
+[node name="e_dots9" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 88.316, 0.00597716, 23.2113)
+
+[node name="e_dots10" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 52.6293, 0.00597716, 36.6861)
+
+[node name="e_dots11" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 76.7506, 0.00597716, 11.876)
+
+[node name="e_dots12" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 120.162, 0.00597525, 4.3509)
+
+[node name="e_dots13" parent="." instance=ExtResource("11_qdv0k")]
+transform = Transform3D(2.43, 0, 0, 0, -1.07749e-07, -1, 0, 2.465, -4.37114e-08, 104.258, 0.00597525, 30.2353)
+
 [node name="e_tree2" parent="." instance=ExtResource("15_yghri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0019, 0, 2.76056)
 
