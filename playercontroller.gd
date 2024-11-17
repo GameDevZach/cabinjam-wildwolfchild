@@ -12,11 +12,11 @@ var animState = "Idle"
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
 @onready var cameraRotator: Node3D = $CameraRotator
-@onready var camera: Camera3D = $CameraRotator/Camera3D
+@onready var camera: Camera3D = $CameraRotator/CamAdjustor/Camera3D
 @onready var playerAnimator: AnimationPlayer = $CharRotator/player/AnimationPlayer
-@onready var cameraAnimator: AnimationPlayer = $CameraRotator/Camera3D/AnimationPlayer
-@onready var BaseMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/BaseMusicStream
-@onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/WildMusicStream
+@onready var cameraAnimator: AnimationPlayer = $CameraRotator/CamAdjustor/Camera3D/AnimationPlayer
+@onready var BaseMusicStream: AudioStreamPlayer = $CameraRotator/CamAdjustor/Camera3D/BaseMusicStream
+@onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/CamAdjustor/Camera3D/WildMusicStream
 @onready var MenacingAura: Area3D = $Area3D
 @onready var StaminaBar: ProgressBar = $Control/ProgressBar
 
@@ -55,6 +55,8 @@ func _physics_process(delta: float) -> void:
 		WildMusicStream.volume_db = 0.0
 		BaseMusicStream.volume_db = -80.0
 		MenacingAura.isWild = true
+		playerAnimator.play("PlayerArmature|Frenzy1",0.25,2)
+		animState = "Frenzy"
 		#velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -63,16 +65,17 @@ func _physics_process(delta: float) -> void:
 	var direction := (cameraRotator.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		if(animState == "Idle"):
-			playerAnimator.play("PlayerArmature|Run",0.5,2)
+			playerAnimator.play("PlayerArmature|Run",0.25,1.75)
 			animState = "Run"
 		velocity.x = direction.x * curSpeed
 		velocity.z = direction.z * curSpeed
-		var dir_angle = -Vector2(direction.x,direction.z).angle()
-		charNode.rotation.y = lerp_angle(charNode.rotation.y, dir_angle, (curSpeed * 0.5)*delta)
+		var _theta = wrapf(atan2(direction.x, direction.z) - charNode.rotation.y, -PI, PI)
+		charNode.rotation.y += clamp(curSpeed * 0.5 * delta, 0, abs(_theta)) * sign(_theta)
+		#charNode.rotation.y = lerp_angle(charNode.global_rotation.y, dir_angle, (curSpeed * 0.5)*delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, curSpeed)
 		velocity.z = move_toward(velocity.z, 0, curSpeed)
-		if(sprintTimer <= 0 and animState == "Run"):
+		if(sprintTimer <= 0 and animState != "Idle" and sprintTimer <= 0):
 			playerAnimator.play("PlayerArmature|Idle",0.3)
 			animState = "Idle"
 

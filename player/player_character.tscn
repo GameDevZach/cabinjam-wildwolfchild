@@ -70,6 +70,7 @@ script = ExtResource("1_6hnix")
 [node name="CharRotator" type="Node3D" parent="CharacterBody3D"]
 
 [node name="CharMesh" parent="CharacterBody3D/CharRotator" instance=ExtResource("2_hvthm")]
+visible = false
 
 [node name="player" parent="CharacterBody3D/CharRotator" instance=ExtResource("3_nh6vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.413293, 0)
@@ -80,20 +81,22 @@ shape = SubResource("BoxShape3D_rpnev")
 
 [node name="CameraRotator" type="Node3D" parent="CharacterBody3D"]
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRotator"]
+[node name="CamAdjustor" type="Node3D" parent="CharacterBody3D/CameraRotator"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRotator/CamAdjustor"]
 transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, -0.163565, 3.68354, 6.23119)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/CameraRotator/CamAdjustor/Camera3D"]
 libraries = {
 "": SubResource("AnimationLibrary_7k0br")
 }
 autoplay = "cam_idle"
 
-[node name="BaseMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+[node name="BaseMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/CamAdjustor/Camera3D"]
 stream = ExtResource("3_bttn8")
 autoplay = true
 
-[node name="WildMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/Camera3D"]
+[node name="WildMusicStream" type="AudioStreamPlayer" parent="CharacterBody3D/CameraRotator/CamAdjustor/Camera3D"]
 stream = ExtResource("4_sew63")
 volume_db = -80.0
 autoplay = true
