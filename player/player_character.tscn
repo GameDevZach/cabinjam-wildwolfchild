@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://datixftma8uy6"]
+[gd_scene load_steps=16 format=3 uid="uid://datixftma8uy6"]
 
 [ext_resource type="Script" path="res://playercontroller.gd" id="1_6hnix"]
 [ext_resource type="PackedScene" uid="uid://c2h21kfqh3uk6" path="res://z_blendermeshes/cube.tscn" id="2_hvthm"]
@@ -18,6 +18,42 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../Control/ScoreLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../Control/FinishLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_c4yru"]
 resource_name = "cam_idle"
@@ -37,10 +73,69 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, -0.207912, 0, 0, 0.978148, 0.4, 1, -0.173589, 0.0257793, 0.00454558, 0.98447, 1, 1, -0.207912, 0, 0, 0.978148)
 
+[sub_resource type="Animation" id="Animation_sc7ey"]
+resource_name = "cam_kill"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.163565, 3.68354, 6.23119, 0.133333, 1, -0.0218902, 3.96843, 6.22124, 0.366667, 1, -0.442014, 3.55032, 6.23584, 0.633333, 1, 0.218966, 3.20525, 6.24789, 0.8, 1, -0.108013, 3.71298, 6.23016, 0.966667, 1, -0.163565, 3.68354, 6.23119)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../Control/ScoreLabel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:fov")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [75.0, 97.0, 75.0]
+}
+
+[sub_resource type="Animation" id="Animation_3b76d"]
+resource_name = "finish"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../Control/FinishLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7k0br"]
 _data = {
 "RESET": SubResource("Animation_nnpio"),
-"cam_idle": SubResource("Animation_c4yru")
+"cam_idle": SubResource("Animation_c4yru"),
+"cam_kill": SubResource("Animation_sc7ey"),
+"finish": SubResource("Animation_3b76d")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1abdj"]
@@ -84,7 +179,7 @@ shape = SubResource("BoxShape3D_rpnev")
 transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 1.243, 0.966)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRotator/CamAdjustor"]
-transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, -0.163565, 3.68354, 6.23119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163565, 3.68354, 6.23119)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/CameraRotator/CamAdjustor/Camera3D"]
 libraries = {
@@ -176,6 +271,15 @@ offset_top = 49.0
 offset_right = 647.0
 offset_bottom = 93.0
 horizontal_alignment = 1
+
+[node name="FinishLabel" type="Label" parent="CharacterBody3D/Control"]
+modulate = Color(1, 1, 0.768627, 1)
+layout_mode = 0
+offset_left = 505.0
+offset_top = 326.0
+offset_right = 668.0
+offset_bottom = 349.0
+text = "What Have I Done?"
 
 [connection signal="body_entered" from="CharacterBody3D/Area3D" to="CharacterBody3D/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="CharacterBody3D/Area3D" to="CharacterBody3D/Area3D" method="_on_body_exited"]

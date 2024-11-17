@@ -7,7 +7,7 @@ extends RigidBody3D
 var isDead: bool = false
 var isFleeing: bool = false
 var fleeVector: Vector3
-var fleeSpd: float = 60
+var fleeSpd: float = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

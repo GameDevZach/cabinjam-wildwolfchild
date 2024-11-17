@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		if(timeRemaining >= 0):
 			TimeLabel.text = str(round(timeRemaining))
 		else:
+			StopFunc()
 			isStopped = true
 		
 
@@ -127,3 +128,11 @@ func _physics_process(delta: float) -> void:
 				if(collider.die()):
 					stamina = min(100,stamina + 10)
 					actualScore += 20
+					cameraAnimator.play("cam_kill")
+					cameraAnimator.queue("cam_idle")
+					
+func StopFunc() -> void:
+	cameraAnimator.play("finish")
+	if(animState == "Frenzy" or animState == "Run"):
+		animState = "Idle"
+		playerAnimator.play("PlayerArmature|Idle",0.2)
