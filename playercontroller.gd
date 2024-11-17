@@ -11,6 +11,8 @@ var animState = "Idle"
 var actualScore = 0
 var displayScore = -1
 var capturingMouse: bool = true
+var timeRemaining: float = 68.0
+var isStopped: bool = false
 
 const JUMP_VELOCITY = 4.5
 @onready var charNode: Node3D = $CharRotator
@@ -23,6 +25,7 @@ const JUMP_VELOCITY = 4.5
 @onready var MenacingAura: Area3D = $Area3D
 @onready var StaminaBar: ProgressBar = $Control/ProgressBar
 @onready var ScoreLabel: Label = $Control/ScoreLabel
+@onready var TimeLabel: Label = $Control/TimeLabel
 
 func _ready() -> void: 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -34,6 +37,8 @@ func _input(event):
 		cameraRotator.rotate_y(-event.relative.x / 100)
 
 func _physics_process(delta: float) -> void:
+	if(isStopped):
+		return
 	StaminaBar.value = stamina
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,6 +46,13 @@ func _physics_process(delta: float) -> void:
 	if displayScore < actualScore:
 		displayScore += 1
 		ScoreLabel.text = str(displayScore)
+	timeRemaining -= delta
+	if(timeRemaining <= 60):
+		if(timeRemaining >= 0):
+			TimeLabel.text = str(round(timeRemaining))
+		else:
+			isStopped = true
+		
 
 	if sprintTimer > 0:
 		sprintTimer -= delta

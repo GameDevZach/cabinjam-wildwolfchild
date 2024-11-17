@@ -9,11 +9,14 @@
 script = ExtResource("1_2tsbr")
 
 [node name="LeafSplosion" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09444, 0)
 material_override = ExtResource("2_6078w")
 cast_shadow = 0
 extra_cull_margin = 10.4
+emitting = false
 amount = 30
 lifetime = 8.15
+one_shot = true
 explosiveness = 1.0
 randomness = 0.05
 transform_align = 1
