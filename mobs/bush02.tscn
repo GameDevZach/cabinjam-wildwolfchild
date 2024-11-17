@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmtton4k2d7f1"]
+
+[ext_resource type="Script" path="res://mobs/bushController.gd" id="1_bcjp8"]
+[ext_resource type="PackedScene" uid="uid://bnp1ojlglyxud" path="res://mobs/leaflets.tscn" id="2_1w8ht"]
+[ext_resource type="PackedScene" uid="uid://cd8yno85l6j5p" path="res://z_blendermeshes/mobcube.tscn" id="3_x1g26"]
+[ext_resource type="PackedScene" uid="uid://c0ynkp12gnbdh" path="res://ArtAssets/e_bush02.fbx" id="4_sj4vs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81qkq"]
+size = Vector3(2, 2, 2)
+
+[node name="Bush02" type="Node3D"]
+
+[node name="MobBody" type="RigidBody3D" parent="."]
+script = ExtResource("1_bcjp8")
+particles_scene = ExtResource("2_1w8ht")
+
+[node name="cube" parent="MobBody" instance=ExtResource("3_x1g26")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MobBody"]
+shape = SubResource("BoxShape3D_81qkq")
+
+[node name="e_bush02" parent="MobBody" instance=ExtResource("4_sj4vs")]

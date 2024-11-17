@@ -1,0 +1,16 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://drxa6505aavbw"]
+
+[resource]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 6.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, -3, 0)
+scale_min = 0.1
+scale_max = 0.8
+turbulence_enabled = true
+turbulence_noise_strength = 1.87
+turbulence_noise_scale = 1.297

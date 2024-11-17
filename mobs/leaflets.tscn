@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnp1ojlglyxud"]
+
+[ext_resource type="Script" path="res://mobs/leaflets.gd" id="1_2tsbr"]
+[ext_resource type="Material" uid="uid://r6pb1hoe2sno" path="res://ArtAssets/wolf.tres" id="2_6078w"]
+[ext_resource type="Material" uid="uid://drxa6505aavbw" path="res://mobs/leafProcess.tres" id="3_4c67j"]
+[ext_resource type="ArrayMesh" uid="uid://xly1s58valpk" path="res://ArtAssets/leaf.obj" id="4_m5d8p"]
+
+[node name="Leaflets" type="Node3D"]
+script = ExtResource("1_2tsbr")
+
+[node name="LeafSplosion" type="GPUParticles3D" parent="."]
+material_override = ExtResource("2_6078w")
+cast_shadow = 0
+extra_cull_margin = 10.4
+amount = 30
+lifetime = 8.15
+explosiveness = 1.0
+randomness = 0.05
+transform_align = 1
+process_material = ExtResource("3_4c67j")
+draw_pass_1 = ExtResource("4_m5d8p")

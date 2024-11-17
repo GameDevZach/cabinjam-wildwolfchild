@@ -12,6 +12,8 @@ var fleeSpd: float = 60
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animPlayer.play(idleAnimation)
+	animPlayer.speed_scale = randf_range(0.8,1.2)
+	rotation.y = randf_range(0,360)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

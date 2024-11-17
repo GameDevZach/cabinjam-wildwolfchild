@@ -15,6 +15,7 @@ script = ExtResource("1_4wro0")
 [node name="BloodSplosion" type="GPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
 cast_shadow = 0
+extra_cull_margin = 10.4
 emitting = false
 amount = 30
 lifetime = 5.04
@@ -28,6 +29,7 @@ draw_pass_1 = ExtResource("4_snq2r")
 [node name="BloodSploosh" type="GPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
 cast_shadow = 0
+extra_cull_margin = 12.6
 emitting = false
 amount = 45
 lifetime = 5.82
@@ -39,6 +41,7 @@ draw_pass_1 = ExtResource("6_vrpas")
 
 [node name="Bonez" type="GPUParticles3D" parent="."]
 material_override = ExtResource("2_kphlw")
+extra_cull_margin = 11.05
 emitting = false
 amount = 14
 lifetime = 10.0
