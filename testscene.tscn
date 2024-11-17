@@ -264,8 +264,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8037, 0, 10.6336)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0019, 0, 2.76056)
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(125.3, 1, 234.73)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5515, -0.5, 0)
+size = Vector3(202.403, 1, 234.73)
 
 [node name="ControlFrames" type="Control" parent="."]
 layout_mode = 3
