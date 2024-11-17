@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://nerumkqiisuy" path="res://ArtAssets/p_bone00.fbx" id="6_dmqer"]
 [ext_resource type="PackedScene" uid="uid://c14yks0mkcwa5" path="res://ArtAssets/p_blooddrop_light.fbx" id="7_5cwvu"]
 [ext_resource type="PackedScene" uid="uid://bha4twwfrsbfw" path="res://ArtAssets/p_blooddrop_dark.fbx" id="8_r3do1"]
-[ext_resource type="PackedScene" uid="uid://d0krvms81j6o1" path="res://ArtAssets/e_tree.fbx" id="9_5r6ei"]
 [ext_resource type="PackedScene" uid="uid://btti28qqt4f5r" path="res://ArtAssets/e_star.fbx" id="10_ymuwl"]
 [ext_resource type="PackedScene" uid="uid://cxkmrn432vxhu" path="res://ArtAssets/e_dots.fbx" id="11_qdv0k"]
 [ext_resource type="PackedScene" uid="uid://c0ynkp12gnbdh" path="res://ArtAssets/e_bush02.fbx" id="12_181i0"]
 [ext_resource type="PackedScene" uid="uid://bhl4arutq0a16" path="res://ArtAssets/e_bush01.fbx" id="13_uaojn"]
 [ext_resource type="PackedScene" uid="uid://dfdkavqxonwu3" path="res://ArtAssets/e_bush00.fbx" id="14_53ae4"]
+[ext_resource type="PackedScene" uid="uid://8hq52kenq8cl" path="res://Environment/tree.tscn" id="15_yghri"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
@@ -140,9 +140,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76923, 4.31748, 5.85834)
 [node name="p_blooddrop_dark" parent="." instance=ExtResource("8_r3do1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53891, 2.85726, 6.56443)
 
-[node name="e_tree" parent="." instance=ExtResource("9_5r6ei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0849, -0.00943756, 14.2927)
-
 [node name="e_star" parent="." instance=ExtResource("10_ymuwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12632, 9.4804, 8.53539)
 
@@ -157,3 +154,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68041, 0, 12.3387)
 
 [node name="e_bush00" parent="." instance=ExtResource("14_53ae4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8037, 0, 10.6336)
+
+[node name="e_tree2" parent="." instance=ExtResource("15_yghri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0019, 0, 2.76056)
