@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://datixftma8uy6"]
+[gd_scene load_steps=14 format=3 uid="uid://datixftma8uy6"]
 
 [ext_resource type="Script" path="res://playercontroller.gd" id="1_6hnix"]
 [ext_resource type="PackedScene" uid="uid://c2h21kfqh3uk6" path="res://z_blendermeshes/cube.tscn" id="2_hvthm"]
 [ext_resource type="AudioStream" uid="uid://cdyufvke00mp1" path="res://Musique/Wolf_Wundernight_Looping.wav" id="3_bttn8"]
 [ext_resource type="AudioStream" uid="uid://bxfnx8ok8rj20" path="res://Musique/Wolf_Ultraviolence_Looping.wav" id="4_sew63"]
+[ext_resource type="Script" path="res://player/MenacingAura.gd" id="5_jehlj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpnev"]
 size = Vector3(2, 2, 2)
@@ -42,6 +43,23 @@ _data = {
 "cam_idle": SubResource("Animation_c4yru")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_1abdj"]
+radius = 5.858
+
+[sub_resource type="Gradient" id="Gradient_jldt1"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.262745, 0.180392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eja87"]
+gradient = SubResource("Gradient_jldt1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekn6f"]
+font_size = 20
+font_color = Color(0.431373, 0.713726, 0.443137, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.301961)
+
 [node name="PlayerCharacter" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
@@ -75,3 +93,46 @@ autoplay = true
 stream = ExtResource("4_sew63")
 volume_db = -80.0
 autoplay = true
+
+[node name="Area3D" type="Area3D" parent="CharacterBody3D"]
+script = ExtResource("5_jehlj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D"]
+shape = SubResource("SphereShape3D_1abdj")
+
+[node name="Control" type="Control" parent="CharacterBody3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 34.0
+offset_right = 94.0
+offset_bottom = 37.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_eja87")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 35.0
+offset_right = 197.0
+offset_bottom = 62.0
+value = 20.0
+
+[node name="Label" type="Label" parent="CharacterBody3D/Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 16.0
+offset_right = 170.0
+offset_bottom = 44.0
+text = "Wild Power"
+label_settings = SubResource("LabelSettings_ekn6f")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="CharacterBody3D/Area3D" to="CharacterBody3D/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/Area3D" to="CharacterBody3D/Area3D" method="_on_body_exited"]

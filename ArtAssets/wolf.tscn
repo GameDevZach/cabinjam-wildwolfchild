@@ -1,33 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://dea16yfrbqk2c"]
+[gd_scene load_steps=8 format=3 uid="uid://dea16yfrbqk2c"]
 
 [ext_resource type="PackedScene" uid="uid://bkacjovomofkv" path="res://ArtAssets/wolf.fbx" id="1_ks088"]
+[ext_resource type="Script" path="res://ArtAssets/WolfController.gd" id="2_5vsb3"]
 [ext_resource type="Material" uid="uid://r6pb1hoe2sno" path="res://ArtAssets/wolf.tres" id="2_6y52v"]
 
+[sub_resource type="Animation" id="Animation_er2rc"]
+resource_name = "Text|BlessYouChild"
+length = 3.004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_gup6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f57lc"]
+_data = {
+"RESET": SubResource("Animation_gup6f"),
+"Text|BlessYouChild": SubResource("Animation_er2rc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_itrkr"]
+
 [node name="wolf" instance=ExtResource("1_ks088")]
+script = ExtResource("2_5vsb3")
 
 [node name="Skeleton3D" parent="WolfArmature" index="0"]
 bones/1/position = Vector3(0, 0.0079244, 0.000204616)
-bones/1/rotation = Quaternion(0.259945, 1.14929e-07, 3.16578e-08, 0.965623)
+bones/1/rotation = Quaternion(0.262756, 1.15021e-07, 3.13229e-08, 0.964862)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/position = Vector3(-1.00581e-16, 0.0123623, 4.21868e-10)
-bones/2/rotation = Quaternion(0.0646357, -6.6939e-10, 2.24762e-08, 0.997909)
+bones/2/rotation = Quaternion(0.0943136, -5.01756e-15, 2.24861e-08, 0.995543)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(1.2678e-16, 0.0102578, 3.62314e-10)
-bones/3/rotation = Quaternion(0.0701917, -5.57738e-10, 2.25926e-08, 0.997534)
+bones/3/rotation = Quaternion(0.094789, 5.45827e-15, 2.25994e-08, 0.995497)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/position = Vector3(-2.36332e-16, 0.00914419, 9.71791e-11)
-bones/4/rotation = Quaternion(0.094672, -2.4114e-09, 3.76277e-08, 0.995509)
+bones/4/rotation = Quaternion(0.158146, -1.12579e-15, 3.77049e-08, 0.987416)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/position = Vector3(7.97518e-11, 0.00978675, -0.000334503)
-bones/5/rotation = Quaternion(0.199313, 5.95058e-07, 9.3217e-08, 0.979936)
+bones/5/rotation = Quaternion(0.148409, 5.89446e-07, 1.23842e-07, 0.988926)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/position = Vector3(-3.4225e-09, 0.00696727, 0.0023925)
 bones/6/rotation = Quaternion(0.150348, -8.64291e-08, 2.01931e-07, 0.988633)
 bones/8/position = Vector3(-6.03063e-09, 0.00241854, 0.00421571)
-bones/8/rotation = Quaternion(0.23829, -1.24486e-07, 4.33279e-07, 0.971194)
+bones/8/rotation = Quaternion(0.329978, -8.25265e-08, 4.43189e-07, 0.943989)
 bones/8/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(0.00418423, 0.00422285, -0.00359379)
-bones/10/rotation = Quaternion(-0.656551, -0.0338608, -0.0322133, 0.752833)
+bones/10/rotation = Quaternion(-0.536075, -0.0222269, -0.0349598, 0.843153)
 bones/12/rotation = Quaternion(0.0066388, -0.00663814, -0.529582, 0.848207)
 bones/12/scale = Vector3(1, 1, 1)
 
@@ -48,3 +89,35 @@ material_override = ExtResource("2_6y52v")
 
 [node name="WolfNeck4" parent="WolfArmature/Skeleton3D" index="5"]
 material_override = ExtResource("2_6y52v")
+
+[node name="Control" type="Control" parent="." index="2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" index="0"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 35.0
+offset_right = 803.0
+offset_bottom = 104.0
+theme_override_colors/default_color = Color(0, 0.533333, 0.494118, 1)
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "There you are sweet child. Go, [color=red]kill[/color] and eat.
+"
+fit_content = true
+scroll_active = false
+
+[node name="TextAnimationPlayer" type="AnimationPlayer" parent="Control" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_f57lc")
+}
+autoplay = "Text|BlessYouChild"
+
+[node name="Label" type="Label" parent="Control" index="2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_itrkr")

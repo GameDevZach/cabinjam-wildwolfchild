@@ -24,6 +24,51 @@ ambient_light_color = Color(1, 1, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_jpcex")
 
+[node name="floor_40x41" parent="." instance=ExtResource("2_id278")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x41"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x41/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jpcex")
+
+[node name="floor_40x42" parent="." instance=ExtResource("2_id278")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0849, 0, 40)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x42"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x42/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jpcex")
+
+[node name="floor_40x43" parent="." instance=ExtResource("2_id278")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0849, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x43"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x43/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jpcex")
+
+[node name="floor_40x44" parent="." instance=ExtResource("2_id278")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0849, 0, -40.0873)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x44"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x44/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jpcex")
+
+[node name="floor_40x45" parent="." instance=ExtResource("2_id278")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11364, 0, -40.0873)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x45"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x45/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jpcex")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lc4vq")
 
@@ -34,8 +79,38 @@ directional_shadow_mode = 0
 [node name="Mob" parent="." instance=ExtResource("3_yatxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 1.39149, 8.77532)
 
+[node name="Mob6" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4664, 1.39149, 8.77532)
+
+[node name="Mob7" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4664, 1.39149, 22.3169)
+
+[node name="Mob8" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8307, 1.39149, 22.3169)
+
+[node name="Mob9" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8307, 1.39149, 33.2815)
+
+[node name="Mob10" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0327, 1.39149, 33.2815)
+
+[node name="Mob11" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0327, 1.39149, -32.2574)
+
+[node name="Mob12" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03268, 1.39149, -32.2574)
+
 [node name="Mob2" parent="." instance=ExtResource("3_yatxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 1.39149, -5.54499)
 
+[node name="Mob3" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4158, 1.39149, -18.0119)
+
+[node name="Mob4" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4158, 1.39149, -8.41588)
+
+[node name="Mob5" parent="." instance=ExtResource("3_yatxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61993, 1.39149, -18.6405)
+
 [node name="wolf" parent="." instance=ExtResource("4_b0ggm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8939, -9.53674e-07, -0.992958)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -25.8939, -4.40141, -7.33581)

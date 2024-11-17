@@ -15,6 +15,8 @@ const JUMP_VELOCITY = 4.5
 @onready var cameraAnimator: AnimationPlayer = $CameraRotator/Camera3D/AnimationPlayer
 @onready var BaseMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/BaseMusicStream
 @onready var WildMusicStream: AudioStreamPlayer = $CameraRotator/Camera3D/WildMusicStream
+@onready var MenacingAura: Area3D = $Area3D
+@onready var StaminaBar: ProgressBar = $Control/ProgressBar
 
 func _ready() -> void: 
 	cameraAnimator.speed_scale = 0.75
@@ -24,6 +26,7 @@ func _input(event):
 		cameraRotator.rotate_y(-event.relative.x / 100)
 
 func _physics_process(delta: float) -> void:
+	StaminaBar.value = stamina
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -37,6 +40,7 @@ func _physics_process(delta: float) -> void:
 			cameraAnimator.speed_scale = 0.75
 			WildMusicStream.volume_db = -80.0
 			BaseMusicStream.volume_db = 0.0
+			MenacingAura.isWild = false
 	elif stamina < 100:
 		stamina += delta * 2
 
@@ -47,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		cameraAnimator.speed_scale = 1.5
 		WildMusicStream.volume_db = 0.0
 		BaseMusicStream.volume_db = -80.0
+		MenacingAura.isWild = true
 		#velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -69,6 +74,5 @@ func _physics_process(delta: float) -> void:
 		var collider_name = collider.name
 
 		if(sprintTimer > 0 and collider_name != "StaticBody3D"):
-			print("I collided with ", collider_name)
 			if(collider_name == "MobBody"):
 				collider.die()
