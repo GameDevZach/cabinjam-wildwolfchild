@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://b1pnqfbhhgfj6"]
+[gd_scene load_steps=26 format=3 uid="uid://b1pnqfbhhgfj6"]
 
-[ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="1_5f5ji"]
 [ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_id278"]
 [ext_resource type="PackedScene" uid="uid://or6ofvpa0dv3" path="res://mobs/mob.tscn" id="3_yatxr"]
 [ext_resource type="PackedScene" uid="uid://b5tnqn8xd8cve" path="res://ArtAssets/p_skull_antlers.fbx" id="5_y16fg"]
@@ -22,13 +21,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcex"]
 size = Vector3(40, 1, 40)
-
-[sub_resource type="Environment" id="Environment_lc4vq"]
-background_mode = 1
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5no11"]
 length = 0.001
@@ -125,10 +117,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Environment" id="Environment_3qkds"]
+background_mode = 1
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_5f5ji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -2, 1)
+[node name="Node3D" type="Node3D"]
 
 [node name="floor_40x40" parent="." instance=ExtResource("2_id278")]
 
@@ -363,13 +355,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11364, 0, 80.9127)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_jpcex")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lc4vq")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.79653, 0.604599, 0, -0.604599, 0.79653, 0, 7.14298, 0)
-directional_shadow_mode = 0
-
 [node name="Mob" parent="." instance=ExtResource("3_yatxr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4334, 1.39149, 8.77532)
 
@@ -582,10 +567,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.929, 0, -41.6489)
 
 [node name="e_tree13" parent="." instance=ExtResource("15_yghri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9275, 0, -151.134)
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5515, -0.5, 0)
-size = Vector3(202.403, 1, 234.73)
 
 [node name="ControlFrames" type="Control" parent="."]
 layout_mode = 3
@@ -831,3 +812,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.268, 0, 41.5738)
 
 [node name="BorderTrees5" parent="." instance=ExtResource("19_3gw36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.268, 0, 41.5738)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3qkds")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.6452, 0)

@@ -32,6 +32,6 @@ func playNextTextBlock() -> void:
 	textAnimPlayer.play("Text|BlessYouChild")
 	
 func StartPlaying() -> void:
-	get_tree().change_scene_to_file("res://testscene.tscn")
+	get_tree().change_scene_to_file("res://Levels/MinimalLevel.tscn")
 	
 	

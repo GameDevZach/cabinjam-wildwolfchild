@@ -39,7 +39,7 @@ func _input(event):
 func _physics_process(delta: float) -> void:
 	if(isStopped):
 		if Input.is_action_just_pressed("Restart"):
-			get_tree().change_scene_to_file("res://testscene.tscn")
+			get_tree().change_scene_to_file("res://Levels/MinimalLevel.tscn")
 		return
 	StaminaBar.value = stamina
 	# Add the gravity.

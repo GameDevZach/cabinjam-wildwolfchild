@@ -203,7 +203,8 @@ shape = SubResource("BoxShape3D_rpnev")
 transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 1.243, 0.966)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRotator/CamAdjustor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163565, 3.68354, 6.23119)
+transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, -0.163565, 3.68354, 6.23119)
+current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/CameraRotator/CamAdjustor/Camera3D"]
 libraries = {
@@ -251,6 +252,7 @@ offset_bottom = 62.0
 value = 20.0
 
 [node name="Label3" type="Label" parent="CharacterBody3D/Control"]
+layout_mode = 0
 offset_left = 500.0
 offset_top = 18.0
 offset_right = 664.0

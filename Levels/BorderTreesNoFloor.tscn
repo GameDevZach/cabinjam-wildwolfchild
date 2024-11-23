@@ -1,0 +1,128 @@
+[gd_scene load_steps=3 format=3 uid="uid://gcq1mx7v1vho"]
+
+[ext_resource type="PackedScene" uid="uid://d0krvms81j6o1" path="res://ArtAssets/e_tree.fbx" id="1_mefn0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0163n"]
+size = Vector3(40, 30, 40)
+
+[node name="BorderTrees" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.3335, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0163n")
+
+[node name="e_tree" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8503, 0, 0.462566)
+
+[node name="e_tree2" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7976, 0, 16.4719)
+
+[node name="e_tree3" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8098, 0, 8.26185)
+
+[node name="e_tree4" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93071, 0, 15.8648)
+
+[node name="e_tree5" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3724, 0, 10.0919)
+
+[node name="e_tree6" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7179, 0, -17.7787)
+
+[node name="e_tree7" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3181, 0, -9.25645)
+
+[node name="e_tree8" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1076, 2.22959, -5.48468)
+
+[node name="e_tree9" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6793, 0, -3.23693)
+
+[node name="e_tree10" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1265, 0, 4.31037)
+
+[node name="e_tree11" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9566, 0, -13.3396)
+
+[node name="e_tree12" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5669, 0, -5.75238)
+
+[node name="e_tree13" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69513, 0, 9.33136)
+
+[node name="e_tree14" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4732, 0, 1.77197)
+
+[node name="e_tree15" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79277, 1.90735e-06, -12.1488)
+
+[node name="e_tree16" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49757, 0, -18.4094)
+
+[node name="e_tree17" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.06953, 0, -12.4777)
+
+[node name="e_tree18" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46154, 0, -18.3121)
+
+[node name="e_tree19" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59775, 1.90735e-06, -8.34094)
+
+[node name="e_tree20" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19766, 0, -16.5172)
+
+[node name="e_tree21" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4367, 0, -2.71953)
+
+[node name="e_tree22" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90425, 0, -3.1737)
+
+[node name="e_tree23" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19631, 0, -6.58237)
+
+[node name="e_tree24" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.58599, 0, -12.5793)
+
+[node name="e_tree25" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0158, 0, -6.96221)
+
+[node name="e_tree26" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9317, 0, -17.2991)
+
+[node name="e_tree27" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5903, 1.90735e-06, -9.97782)
+
+[node name="e_tree28" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8175, 0, -13.9175)
+
+[node name="e_tree29" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2546, -1.90735e-06, -13.8434)
+
+[node name="e_tree30" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.963, 0, 8.85926)
+
+[node name="e_tree31" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45996, 0, 3.07498)
+
+[node name="e_tree32" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8907, 0, 17.1843)
+
+[node name="e_tree33" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6633, 1.90735e-06, 11.5854)
+
+[node name="e_tree34" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4681, 0, 17.3314)
+
+[node name="e_tree35" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0342, 0, 12.3426)
+
+[node name="e_tree36" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.676, 0, 6.26623)
+
+[node name="e_tree37" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1868, 0, 3.85906)
+
+[node name="e_tree38" parent="." instance=ExtResource("1_mefn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5487, 0, 1.30817)
