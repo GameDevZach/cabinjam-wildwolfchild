@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ce7j1snn442w2"]
+
+[ext_resource type="Texture2D" uid="uid://dri8uiq0op47s" path="res://ArtAssets/s_dialogueBG.png" id="1_ibqbp"]
+
+[resource]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_ibqbp")
