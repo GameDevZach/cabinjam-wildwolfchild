@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 		cameraAnimator.speed_scale = 1.5
 		#WildMusicStream.volume_db = 0.0
 		#BaseMusicStream.volume_db = -80.0
-		BaseMusicStream.pitch_scale = 2
+		BaseMusicStream.pitch_scale = 1.5
 		MenacingAura.isWild = true
 		playerAnimator.play("PlayerArmature|Frenzy1",0.25,2)
 		animState = "Frenzy"

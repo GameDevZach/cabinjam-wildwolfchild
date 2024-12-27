@@ -14,6 +14,10 @@ size = Vector3(40, 1, 40)
 
 [sub_resource type="Environment" id="Environment_5c57y"]
 background_mode = 1
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 35.0
 
 [node name="MinimalLevel" type="Node3D"]
 
@@ -33,7 +37,7 @@ shape = SubResource("BoxShape3D_6vyn2")
 environment = SubResource("Environment_5c57y")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_lywfo")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.9134, 2.31142, -2.01674)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.79589, 2.31142, 37.7214)
 
 [node name="Bush00" parent="." instance=ExtResource("3_84rim")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33426, 1.13103, 49.2946)

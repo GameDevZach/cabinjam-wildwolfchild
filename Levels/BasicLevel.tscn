@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8h8lt6iovf17"]
+
+[ext_resource type="PackedScene" uid="uid://cxkmrn432vxhu" path="res://ArtAssets/e_dots.fbx" id="1_5mm1p"]
+[ext_resource type="PackedScene" uid="uid://curhljr3pvprf" path="res://z_blendermeshes/floor_40x40.blend" id="2_q3vp5"]
+[ext_resource type="PackedScene" uid="uid://datixftma8uy6" path="res://player/player_character.tscn" id="3_712dk"]
+[ext_resource type="PackedScene" uid="uid://y60cnjtu0aao" path="res://mobs/bush00.tscn" id="4_yq54g"]
+[ext_resource type="PackedScene" uid="uid://cxgd614275568" path="res://mobs/bush01.tscn" id="5_b06uu"]
+[ext_resource type="PackedScene" uid="uid://dmtton4k2d7f1" path="res://mobs/bush02.tscn" id="6_kec6x"]
+[ext_resource type="PackedScene" uid="uid://or6ofvpa0dv3" path="res://mobs/mob.tscn" id="7_r5nxb"]
+[ext_resource type="PackedScene" uid="uid://gcq1mx7v1vho" path="res://Levels/BorderTreesNoFloor.tscn" id="8_swfly"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6vyn2"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="Environment" id="Environment_5c57y"]
+background_mode = 1
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 35.0
+
+[node name="BasicLevel" type="Node3D"]
+
+[node name="e_dots" parent="." instance=ExtResource("1_5mm1p")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -25.5314, 3.8147e-06, 52.3446)
+
+[node name="floor_40x40" parent="." instance=ExtResource("2_q3vp5")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -0.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_40x40"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_40x40/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_6vyn2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5c57y")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_712dk")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.79589, 2.31142, 37.7214)
+
+[node name="Bush00" parent="." instance=ExtResource("4_yq54g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33426, 1.13103, 49.2946)
+
+[node name="Bush01" parent="." instance=ExtResource("5_b06uu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6445, 1.47205, 41.5721)
+
+[node name="Bush02" parent="." instance=ExtResource("6_kec6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54535, 1.53857, 46.6361)
+
+[node name="Mob" parent="." instance=ExtResource("7_r5nxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3518, 1.97929, 42.7239)
+
+[node name="BorderTrees" parent="." instance=ExtResource("8_swfly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1921, -1.07683, 83.1334)
+
+[node name="BorderTrees2" parent="." instance=ExtResource("8_swfly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1921, -1.07683, 41.8305)
+
+[node name="BorderTrees3" parent="." instance=ExtResource("8_swfly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1921, -1.07683, 2.22164)
+
+[node name="BorderTrees4" parent="." instance=ExtResource("8_swfly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1921, -1.07683, -34.5609)
+
+[node name="BorderTrees5" parent="." instance=ExtResource("8_swfly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1921, -1.07683, -75.8398)
